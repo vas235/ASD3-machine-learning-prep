@@ -83,7 +83,7 @@ imputation_proportions <- data.frame(
 # Placeholder for 2016 special case
 imputed_data_2016 <- NULL
 
-for (year in 2016:2022) {
+for (year in 2016:2023) {
   dta_file <- file.path(csv_dir, paste0("nsch_", year, "_topical.dta"))
   csv_file <- file.path(csv_dir, paste0("nsch_", year, "_topical.do.define.csv"))
   
@@ -152,6 +152,19 @@ for (year in 2016:2022) {
   
   # Store processed data
   all_data_list[[as.character(year)]] <- data.table(labeled_data)
+}
+
+
+for (year in 2016:2023) {
+  cat(paste0("\n[", year, "] Table for hoursleep:\n"))
+  this_year_data <- all_data_list[[as.character(year)]]
+  print(table(this_year_data$hoursleep, useNA = "ifany"))
+}
+
+for (year in 2016:2023) {
+  cat(paste0("\n[", year, "] Table for hoursleep05:\n"))
+  this_year_data <- all_data_list[[as.character(year)]]
+  print(table(this_year_data$hoursleep05, useNA = "ifany"))
 }
 
 
@@ -307,8 +320,8 @@ final_conversion_to_factors <- function(data) {
       
       
       # Convert the original column to a factor using the labels from the "_label" column
-      data[[var]] <- factor(data[[var]], levels = order(sorted_values), labels = sorted_labels)
-      
+      # OLD LINE THAT WAS BROKEN data[[var]] <- factor(data[[var]], levels = order(sorted_values), labels = sorted_labels) #
+      data[[var]] <- factor(data[[var]], levels = sorted_values, labels = sorted_labels)
       # Replace missing data labels with NA for categorical columns
       levels(data[[var]])[levels(data[[var]]) %in% na_labels] <- NA
       
@@ -462,7 +475,7 @@ combined_data$higrade_tvis[is.na(combined_data$higrade_tvis)] <- imputed_data_20
 # Since this data doesn't rely on imputed or weighted values we have just joined it from the cahmi datasets.
 
 # Load develeopmental screening dataset that has been extracted from the yearly cahmi datasets
-devscrnng_data <- readRDS("ml-data-prep/devscrnng.rds")
+devscrnng_data <- readRDS("ml-data-prep/devscrnng_2016_2023.rds")
 
 # Ensure that hhid is a key in both data.tables
 setkey(combined_data, hhid)
@@ -474,4 +487,8 @@ final_data <- combined_data[devscrnng_data, nomatch = 0]
 
 
 # Save the final data
-saveRDS(final_data, "ml-data-prep/clean-data.rds")
+saveRDS(final_data, "ml-data-prep/clean-data-2016-2023.rds")
+
+
+str(final_data$k4q02_r)
+table(final_data$k4q02_r, useNA = "ifany")

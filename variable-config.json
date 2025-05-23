@@ -2,7 +2,7 @@
 	"desired_variables": [
 		"year", "hhid", "stratum", "fwc", "fipsst", "cbsafp_yn", "metro_yn", "mpc_yn",
 
-		"sc_age_years", "sc_race_r", "sc_sex",
+		"sc_age_years", "sc_race_r", "sc_hispanic_r", "sc_sex",
 
 		"agepos4", "hhlanguage", "totage_0_5", "totage_12_17", "totage_6_11",
 		"totfemale", "totmale", "totcshcn", "totnonshcn",
@@ -10,16 +10,16 @@
 		"sc_cshcn", "sc_k2q10", "sc_k2q13", "sc_k2q16", "sc_k2q19", "sc_k2q22",
 
 		"allergies", "autismmed", "autismtreat", "blindness", "blood", "breathing",
-		"cavities", "cystfib", "downsyn", "genetic", "gumbleed", "hcability",
+		"cavities", "cystfib", "downsyn", "gumbleed", "hcability",
 		"headache", "heart", "k2q01", "k2q01_d", "k2q30a", "k2q31a", "k2q32a", 
 		"k2q33a", "k2q34a", "k2q35a", "k2q35a_1_years", "k2q35b", "k2q35c", 
 		"k2q35d", "k2q36a", "k2q37a", "k2q38a", "k2q40a", "diabetes", "k2q42a", 
 		"k2q43b", "k2q60a", "k2q61a", "physicalpain", "stomach", "swallowing", 
 		"toothaches",
 
-		"birthwt", "k2q05", "momage",
+		"birthwt", "k2q05",
 
-		"althealth", "c4q04", "hospitaler", "k4q01", "k4q02_r", "k4q20r", "k4q22_r", 
+		"c4q04", "hospitaler", "k4q01", "k4q02_r", "k4q20r", "k4q22_r", 
 		"k4q23", "k4q24_r", "k4q27", "dentistvisit", "eyedoctor", "k4q36", 
 		"k6q15", "s4q01", "usualgo", "wgtconc",
 
@@ -81,10 +81,22 @@
 				"new_label": ["Metropolitan Statistical Area", "Not Metropolitan Statistical Area"]
 			},
 			"hospitaler": {
-				"years": ["2016", "2017", "2022"],
+				"years": ["2016", "2017", "2022","2023"],
 				"value": ["1", "2", "3", "4"],
 				"new_value": ["1", "2", "3", "3"],
 				"new_label": ["None", "1 time", "2 or more times", "2 or more times"]
+			},
+			"k4q02_r": {
+				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+				"value": ["5", "8", "998"],
+				"new_value": ["5", "7", "8"],
+				"new_label": ["Clinic within a drug store or grocery store", "Some other place", "No usual place"]
+			},
+			"gowhensick": {
+				"years": ["2023"],
+				"value": ["4", "8", "998"],
+				"new_value": ["4", "7", "8"],
+				"new_label": ["Clinic or Health Center", "Some other place", "No usual place"]
 			},
 			"higrade": {
 				"years": ["2016"],
@@ -104,86 +116,80 @@
 				"new_value": ["1", "2", "3", "4"],
 				"new_label": ["1st generation household [Child is born outside the United States and all reported parents are born outside the United States. At least one parent must be reported as born outside the United States.]", "2nd generation household [Child is born in the United States and at least one parent is born outside the United States OR child is born outside the United States, one parent is born in the United States and one parent is born outside the United States.]", "3rd+ generation [All parents in the household are born in the United States]", "Other [Child is born in the United States, parents are not listed.]"]
 			},
-			"k4q02_r": {
-				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
-				"value": ["998", "8"],
-				"new_value": ["7", "7"],
-				"new_label": ["No usual place", "Some other place"]
-			},
 			"k4q20r": {
-				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"],
 				"value": ["998"],
 				"new_value": ["1"],
 				"new_label": ["0 visits"]
 			},
 			"dentistvisit": {
-				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"],
 				"value": ["998"],
 				"new_value": ["1"],
 				"new_label": ["No preventive visits in past 12 months"]
 			},
 			"bestforchild": {
-				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"],
 				"value": ["998"],
 				"new_value": ["4"],
 				"new_label": ["No healthcare provider visits last 12 months"]
 			},
 			"discussopt": {
-				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"],
 				"value": ["998"],
 				"new_value": ["4"],
 				"new_label": ["No healthcare provider visits last 12 months"]
 			},
 			"k5q11": {
-				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"],
 				"value": ["1", "2", "3", "998"],
 				"new_value": ["1", "2", "3", "4"],
 				"new_label": ["Not difficult", "Somewhat difficult", "Very difficult", "Did not need a referral"]
 			},
 			"k5q20_r": {
-				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"],
 				"value": ["998"],
 				"new_value": ["3"],
 				"new_label": ["Did not see more than one health care provider in the past 12 months"]
 			},
 			"k5q21": {
-				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"],
 				"value": ["998"],
 				"new_value": ["2"],
 				"new_label": ["No healthcare provider visits last 12 months"]
 			},
 			"k5q31_r": {
-				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"],
 				"value": ["998"],
 				"new_value": ["3"],
 				"new_label": ["Did not need health care provider to communicate with these providers"]
 			},
 			"k5q40": {
-				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"],
 				"value": ["998"],
 				"new_value": ["4"],
 				"new_label": ["No healthcare provider visits last 12 months"]
 			},
 			"k5q41": {
-				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"],
 				"value": ["998"],
 				"new_value": ["4"],
 				"new_label": ["No healthcare provider visits last 12 months"]
 			},
 			"k5q42": {
-				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"],
 				"value": ["998"],
 				"new_value": ["4"],
 				"new_label": ["No healthcare provider visits last 12 months"]
 			},
 			"k5q43": {
-				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"],
 				"value": ["998"],
 				"new_value": ["4"],
 				"new_label": ["No healthcare provider visits last 12 months"]
 			},
 			"k5q44": {
-				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"],
 				"value": ["998"],
 				"new_value": ["4"],
 				"new_label": ["No healthcare provider visits last 12 months"]
@@ -207,13 +213,13 @@
 				"new_label": ["Less than 1 hour per week", "This child does not need health care provided at home on a weekly basis"]
 			},
 			"hoursleep": {
-				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"],
 				"value": ["1", "2", "3", "4", "5", "6", "7"],
 				"new_value": ["1", "1", "2", "3", "4", "5", "6"],
 				"new_label": ["Less than 7 hours", "Less than 7 hours", "7 hours", "8 hours", "9 hours", "10 hours", "11 or more hours"]
 			},
 			"hoursleep05": {
-				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"],
 				"value": ["6", "7"],
 				"new_value": ["6", "6"],
 				"new_label": ["11 or more hours", "11 or more hours"]
@@ -261,14 +267,18 @@
 				"new_name": "eyedoctor"
 			},
 			"family_r": {
-				"years": ["2017", "2018", "2019", "2020", "2021", "2022"],
+				"years": ["2017", "2018", "2019", "2020", "2021", "2022", "2023"],
 				"new_name": "family"
+			},
+			"gowhensick": {
+				"years": ["2023"],
+				"new_name": "k4q02_r"
 			}
 		},
 		
 		"merge_columns": {
 			"sleep": {
-				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+				"years": ["2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"],
 				"column_1": "hoursleep",
 				"column_2": "hoursleep05"
 			}
