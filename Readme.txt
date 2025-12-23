@@ -1,6 +1,6 @@
 Readme
 
-This is a courtesy script, but I will not be maintaining any of it beyond this point. So do whatever you like with it.
+I will not be around to maintain any of this beyond this point. So feel free to do whatever you like with it.
 
 
 
@@ -21,13 +21,13 @@ There are a few steps to getting the data cleaned up:
 	You should only need to adjust stuff in the variable-config.json file
 	I tried to build it to be controlled off just that file.
 
-	The desired variable list has everything except the one you are going to ask me about, so if you want to add a new one just add it to:
+	If you want to add a new feature just add it to:
 	
 	"desired_variables": [
  
 	but be sure to check that any variables you add are identical across all the years you plan to use, oh and double check the actual .do files as well if something gets weird, sometimes the code labels they use in the online codebook aren't 100% accurate to what is actually in the data, its times like those I missed fry corner the most.
 	
-	If the variable you need to add has issues, then you just need to make an adjustment. I tried to cover all the adjustments you might encounter.
+	If the variable you need to add has issues, then you just need to make an adjustment. I tried to hack together a system with the json controller to cover all the adjustments you might encounter.
 
 	"transformations": {
 
